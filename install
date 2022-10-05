@@ -1,0 +1,21 @@
+1. docker run --rm -v $(pwd):/app composer create-project --prefer-dist laravel/laravel voyager-teste "5.6.*"
+
+2. sudo chown -R $USER:$USER ~/vat/voyager-teste
+
+3. docker-compose up -d --build
+
+4. docker-compose exec php composer install
+
+5. docker-compose exec php php artisan key:generate
+
+6. docker-compose exec php php artisan config:cache
+
+7. docker-compose exec php php artisan migrate
+
+8. docker-compose exec php chmod -R 777 /var/www/storage/
+
+9. docker-compose exec php composer require tcg/voyager:1.3.0 --with-all-dependencies
+
+10. docker-compose exec php php artisan voyager:install
+
+11. docker-compose exec php php artisan voyager:admin leandro.costa@techlog.com.br --create
